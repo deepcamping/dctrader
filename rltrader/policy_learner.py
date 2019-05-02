@@ -2,11 +2,11 @@ import os
 import locale
 import logging
 import numpy as np
-import settings
-from environment import Environment
-from agent import Agent
-from policy_network import PolicyNetwork
-from visualizer import Visualizer
+from rltrader import settings
+from rltrader.environment import Environment
+from rltrader.agent import Agent
+from rltrader.policy_network import PolicyNetwork
+from rltrader.visualizer import Visualizer
 
 
 logger = logging.getLogger(__name__)

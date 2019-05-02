@@ -1,13 +1,12 @@
 import logging
 import os
-import settings
-import data_manager
-from policy_learner import PolicyLearner
+from rltrader import settings, data_manager
+from rltrader.policy_learner import PolicyLearner
 
 
 if __name__ == '__main__':
     stock_code = '005930'  # 삼성전자
-    model_ver = '20180202000545'
+    model_ver = '20190501172518'
 
     # 로그 기록
     log_dir = os.path.join(settings.BASE_DIR, 'logs/%s' % stock_code)
@@ -29,7 +28,7 @@ if __name__ == '__main__':
 
     # 기간 필터링
     training_data = training_data[(training_data['date'] >= '2018-01-01') &
-                                  (training_data['date'] <= '2018-01-31')]
+                                  (training_data['date'] <= '2018-02-14')]
     training_data = training_data.dropna()
 
     # 차트 데이터 분리
