@@ -61,7 +61,7 @@ def select_stocks():
                          passwd='deepcamping1!', db='deepcamping', charset='utf8')
     try:
         cursor = db.cursor()
-        sql = "SELECT * from stocks"
+        sql = "SELECT * from stocks where symbol > '023890'"
 
         cursor.execute(sql)
         rows = cursor.fetchall()
@@ -121,8 +121,9 @@ def make_price_csv():
 
 def insert_price_csv():
     for stock in select_stocks():
-        dataset = pd.read_csv("/Users/grange/Downloads/financedata/" + str(stock[0]) + ".csv")
+        dataset = pd.read_csv("/Users/hb.shin/Nextcloud/Documents/financedata/" + str(stock[0]) + ".csv")
         # print(dataset.get_values())
+        print(stock[0])
         insert_price(stock[0], dataset.get_values())
 
 
